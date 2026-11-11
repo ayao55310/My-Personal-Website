@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="auth-container">
+        <form class="auth-form" id="signupForm">
+            <h2>Make It Yours| Join now 💻</h2>
+            <p>Join our website and discover your interests, build new skills,and open the door to endless opportunities!</p>
+
+        
+        
+            <label style="display: block; text-align: left;" for="fullname">Full Name</label>
+            <input type="text" id="fullname"
+                   placeholder="Enter your Full Name" required>
+
+            <label style="display: block; text-align: left;"  for="signupEmail">Email Address</label>
+            <input type="email" id="signupEmail"
+                   placeholder="Enter your Email Address" required>
+
+            <label style="display: block; text-align: left;" for="signupPassword">Password</label>
+            <input type="password" id="signupPassword"
+                   placeholder="Enter your Password" required>
+
+            <label style="display: block; text-align: left;" for="confirmPassword">Confirm Password</label>
+            <input type="password" id="confirmPassword"
+                   placeholder="Confirm your Password" required>
+
+            <label style="display: block; text-align: left;" for="phone">Phone Number</label>
+            <input type="tel" id="phone"
+                   placeholder="Enter your Phone Number" required>
+            
+            <label style="display: block; text-align: left;" for="terms"></label>Your info stays safe with us.</label>
+              <input type="checkbox" id="terms" required>
+            
+            </label>
+            <button type="submit">Sign Up</button>
+
+            <p id="signupMessage"></p>
+
+            <p class="auth-link">
+                Already have an account?
+                <a href="signin.html">Sign In</a>
+            </p>
+
+            <a href="index.html">Back to Home</a>
+        </form>
+    </div>
+    <script>
+        document.getElementById("signupForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            let password = document.getElementById("signupPassword").value;
+            let confirm = document.getElementById("confirmPassword").value;
+            let message = document.getElementById("signupMessage");
+
+            if (password.length < 8) {
+                message.textContent = "Password must contain at least 8 characters.";
+                return;
+            }
+
+            if (password !== confirm) {
+                message.textContent = "Passwords do not match!";
+                return;
+            }
+
+            message.textContent = "Account created successfully!";
+            message.style.color = "green";
+        });
+    </script>
+
+</body>
+</html>

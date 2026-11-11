@@ -1,0 +1,57 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="auth-container">
+        <form class="auth-form" id="signinForm">
+            <h2>Welcome to ur space 📖 </h2>
+            <p>Start your journey with us today</p>
+             
+            <label style="display: block; text-align: left;" for="loginEmail">Email Address</label>
+            <input type="email" id="loginEmail"
+                placeholder="Enter your Email Address" required>
+            
+            <label style="display: block; text-align: left;" for="loginPassword">Password</label>
+            <input type="password" id="loginPassword"
+                placeholder="Enter your Password" required>
+            
+            <button type="submit">Sign In</button>
+
+            <p id="signinMessage"></p>
+
+            <p class="auth-link">
+                Don't have an account?
+                <a href="signup.html">Sign Up</a>
+            </p>
+
+            <a href="index.html">Back to Home</a>
+        </form>
+    </div>
+    
+    <script>
+        document.getElementById("signinForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            let email = document.getElementById("loginEmail").value;
+            let password = document.getElementById("loginPassword").value;
+            let message = document.getElementById("signinMessage");
+
+            if (email === "" || password === "") {
+                message.textContent = "Please fill in all fields.";
+                message.style.color = "red";
+                return;
+            }
+
+            message.textContent = "Form submitted successfully!";
+            message.style.color = "green";
+        });
+    </script>
+
+</body>
+</html>
